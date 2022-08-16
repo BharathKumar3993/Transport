@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<util:map map-class="java.util.HashMap" id="destinationMap">
+		<entry key="Chennai" value="0" />
+		<entry key="Bangalore" value="1500" />
+		<entry key="Delhi" value="2500" />
+		<entry key="Mumbai" value="2000" />
+		<entry key="Hyderabad" value="1000" />
+		<entry key="Pune" value="2500" />
+	</util:map>
+
+	<bean id="vehicle"
+		class="com.bharath.spring.EEZE_Transport.Vehicle">
+		<property name="source" value="Chennai"></property>
+		<property name="destinationMap" ref="destinationMap"></property>
+	</bean>
+
+	<bean id="transportService"
+		class="com.bharath.spring.EEZE_Transport.TransportService">
+		<property name="vehicle" ref="vehicle"></property>
+	</bean>
+
+
+
+
+</beans>
